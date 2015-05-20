@@ -1,0 +1,55 @@
+name: PlayerSchematics
+main: com.github.pocketkid2.playerschematics.PlayerSchematicsPlugin
+version: 0.1.0
+author: Pocketkid2
+description: Organizes world edit schematics by player
+commands:
+    playerschematics:
+        description: The main command, use this in place of //schematic
+        usage: |
+          /<command> save <name> [player]
+          /<command> load <name> [player]
+          /<command> list [player]
+          /<command> delete <name> [player]
+        aliases: [pschem, ps, playerschem, pschematic]
+permissions:
+    playerschematics.user.*:
+        description: All user permissions
+        default: true
+        children:
+            playerschematics.user.save: true
+            playerschematics.user.load: true
+            playerschematics.user.list: true
+            playerschematics.user.delete: true
+    playerschematics.user.save:
+        description: Allows /pschem save
+        default: true
+    playerschematics.user.load:
+        description: Allows /pschem load
+        default: true
+    playerschematics.user.list:
+        description: Allows /pschem list
+        default: true
+    playerschematics.user.delete:
+        description: Allows /pschem delete
+        default: true
+    playerschematics.admin.*:
+        description: All admin permissions
+        default: op
+        children:
+            playerschematics.admin.save: true
+            playerschematics.admin.load: true
+            playerschematics.admin.list: true
+            playerschematics.admin.delete: true
+    playerschematics.admin.save:
+        description: Allows /pschem save <player>
+        default: op
+    playerschematics.admin.load:
+        description: Allows /pschem load <player>
+        default: op
+    playerschematics.admin.list:
+        description: Allows /pschem list <player>
+        default: op
+    playerschematics.admin.delete:
+        description: Allows /pschem delete <player>
+        default: op
